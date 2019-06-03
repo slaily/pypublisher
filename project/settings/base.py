@@ -74,10 +74,24 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+DATABASE_NAME = 'your-db-name'
+DATABASE_HOST = 'your-db-host'
+DATABASE_USER = 'your-db-user'
+DATABASE_USER_PASSWORD = 'your-db-user-pass'
+DATABASE_CONNECTION_STRING = 'mongodb://{user}:{password}@{host}/{database}'
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'djongo',
+        'NAME': DATABASE_NAME,
+        'HOST': DATABASE_CONNECTION_STRING.format(
+            user=DATABASE_USER,
+            password=DATABASE_USER_PASSWORD,
+            host=DATABASE_HOST,
+            database=DATABASE_NAME
+        ),
+        'USER': DATABASE_USER,
+        'PASSWORD': DATABASE_USER_PASSWORD,
     }
 }
 
