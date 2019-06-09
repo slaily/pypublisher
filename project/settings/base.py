@@ -83,6 +83,7 @@ DATABASE_CONNECTION_STRING = 'mongodb://{user}:{password}@{host}/{database}'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
+        'ENFORCE_SCHEMA': False,
         'NAME': DATABASE_NAME,
         'HOST': DATABASE_CONNECTION_STRING.format(
             user=DATABASE_USER,
