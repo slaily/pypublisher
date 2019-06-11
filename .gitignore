@@ -81,6 +81,7 @@ ENV/
 
 # Other
 .DS_Store
+*.txt
 
 # Project files
 node_modules/
