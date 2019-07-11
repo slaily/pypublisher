@@ -16,6 +16,8 @@ DEBUG = True
 # PATHS
 # ===========================
 
+# Directories
+
 # Path to the /pypublisher directory
 MAIN_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 # Path to the /pypublisher/project directory
@@ -24,6 +26,12 @@ PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATES_DIR = os.path.join(PROJECT_DIR, 'templates')
 # Path to the /pypublisher/project/static directory
 STATIC_DIR  = os.path.join(PROJECT_DIR, 'static')
+
+# Files
+
+# Path to the MySQL configuration file
+# File contains credentials and other settings related to the database
+MYSQL_CONF_PATH = os.path.join(MAIN_DIR, 'mysql.cnf')
 
 
 # ===========================
@@ -136,24 +144,12 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 # ===========================
 
-DATABASE_NAME = 'your-db-name'
-DATABASE_HOST = 'your-db-host'
-DATABASE_USER = 'your-db-user'
-DATABASE_USER_PASSWORD = 'your-db-user-pass'
-DATABASE_CONNECTION_STRING = 'mongodb://{user}:{password}@{host}/{database}'
-
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
-        'ENFORCE_SCHEMA': False,
-        'NAME': DATABASE_NAME,
-        'HOST': DATABASE_CONNECTION_STRING.format(
-            user=DATABASE_USER,
-            password=DATABASE_USER_PASSWORD,
-            host=DATABASE_HOST,
-            database=DATABASE_NAME
-        ),
-        'USER': DATABASE_USER,
-        'PASSWORD': DATABASE_USER_PASSWORD,
+        'ENGINE': 'django.db.backends.mysql',
+        'OPTIONS': {
+            # Read MySQL credentials from file
+            'read_default_file': MYSQL_CONF_PATH,
+        },
     }
 }
