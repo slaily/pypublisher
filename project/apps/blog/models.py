@@ -1,15 +1,19 @@
-from djongo import models
+from django.db import models
 
 from project.apps.base.models import Base
 
 
 class Author(models.Model):
-    _id = models.ObjectIdField()
     fullname = models.CharField(max_length=100)
     email = models.EmailField(max_length=254, unique=True)
 
+    class Meta:
+        # Set explicit database table name to avoid
+        # prefix name with the database name
+        db_table = 'authors'
+
     def __str__(self):
-        return '<Author: ID - {id}>'.format(id=self._id)
+        return '<Author: ID - {id}>'.format(id=self.id)
 
 
 class Article(Base):
@@ -25,5 +29,10 @@ class Article(Base):
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     status = models.IntegerField(choices=STATUSES, default=0)
 
+    class Meta:
+        # Set explicit database table name to avoid
+        # prefix name with the database name
+        db_table = 'articles'
+
     def __str__(self):
-        return '<Article: ID - {id}>'.format(id=self._id)
+        return '<Article: ID - {id}>'.format(id=self.id)
