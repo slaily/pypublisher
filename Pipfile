@@ -6,9 +6,9 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-djongo = "*"
 django = "==2.0"
 coverage = "*"
+mysqlclient = "*"
 
 [requires]
 python_version = "3.7"
