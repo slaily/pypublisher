@@ -1,0 +1,12 @@
+# .coveragerc to control coverage
+[run]
+branch = True
+source = project/
+
+[report]
+precision = 2
+show_missing = True
+sort = Cover
+
+[html]
+directory = coverage_html_report
