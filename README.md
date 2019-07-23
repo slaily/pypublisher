@@ -60,3 +60,21 @@
     ```
 4. Run command ``python manage.py migrate`` to apply the migrations.
 5. You're ready to use the application!
+
+
+******************************************************************************
+## Testing the application
+******************************************************************************
+1. Go to the main directory **pypublisher/**(if you are not in).
+2. Execute tests.
+    - Run command ``coverage run manage.py test``.
+3. Produce a textual summary report in the Terminal/Console.
+    - Run command ``coverage report``.
+    - Covered files can be omitted with command ``coverage report --skip-covered``.
+4. Produce an HTML report.
+    - Run command ``coverage html``.
+    - In the main directory **pypublisher/** will be created folder **coverage_html_report/** containing the report.
+    - Open file 'index.html' in the browser from the **coverage_html_report/** directory.
+5. In the main directory **pypublisher/** there is a file **.coveragerc**, where all configuration settings for the **coverage** tool are lying.
+    - The [file](https://coverage.readthedocs.io/en/v4.5.x/config.html) settings can be extended/modified.
+6. To erase the collected coverage data, use the erase command ``coverage erase``.
