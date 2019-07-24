@@ -10,3 +10,4 @@ exclude =
     migrations
 # Print the source code generating the error/warning.
 # show_source = True
+max-line-length = 89

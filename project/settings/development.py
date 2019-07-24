@@ -1,6 +1,6 @@
 from sys import argv
 
-from project.settings.base import *
+from project.settings.base import *  # noqa
 
 
 if 'test' in argv:
