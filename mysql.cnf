@@ -2,4 +2,6 @@
 database = your-database
 user = your-database-user
 password = your-database-user-password
+host = localhost
+port = 3306
 default-character-set = utf8mb4
