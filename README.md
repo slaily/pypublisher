@@ -2,6 +2,18 @@
 
 *Modern Blog application written in Python*
 
+> **NOTE**:
+>
+>> <em>Before proceeding to the sections below, instead of manually installing prerequisites software for the project, you have the convenience running project through a [**Docker**](./docs/setup/docker.md). You have a packaged application with all of its dependencies into containers, no matter from the environment in which they run. It is up to you.</em>
+
+
+******************************************************************************
+## Prerequisites
+******************************************************************************
+1. You must have installed [Python 3.7](https://www.python.org/downloads/).
+2. You must have installed [MySQL](https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/).
+
+
 ******************************************************************************
 ## Installation
 ******************************************************************************
@@ -15,11 +27,11 @@
 4. Activate the environment.
     - Go to the main directory **pypublisher/**(if you are not in).
     - Run command ``pipenv shell``.
+    - If you want later to deactivate from the environment run command ``deactivate``.
 5. Install all dependencies for a project.
     - Go to the main directory **pypublisher/**(if you are not in).
     - Run command ``pipenv install``.
     - You can check installed dependencies by typing ``pipenv graph``.
-6. You must have installed [MySQL](https://dev.mysql.com/doc/mysql-installation-excerpt/5.7/en/).
 
 
 ******************************************************************************
@@ -35,6 +47,8 @@
         database = your-database
         user = your-database-user
         password = your-database-user-password
+        host = localhost
+        port = 3306
         default-character-set = utf8mb4
       ```
 4. Put your credentials.
@@ -78,3 +92,15 @@
 5. In the main directory **pypublisher/** there is a file **.coveragerc**, where all configuration settings for the **coverage** tool are lying.
     - The [file](https://coverage.readthedocs.io/en/v4.5.x/config.html) settings can be extended/modified.
 6. To erase the collected coverage data, use the erase command ``coverage erase``.
+
+
+******************************************************************************
+## Authors
+******************************************************************************
+* **Iliyan Slavov** - [slaily](https://github.com/slaily)
+
+
+******************************************************************************
+## License
+******************************************************************************
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
