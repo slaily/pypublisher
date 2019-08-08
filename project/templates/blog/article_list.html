@@ -3,7 +3,7 @@
 {% block content %}
     {% for page_obj in page %}
         {# Each "page_obj" is a Article model object. #}
-        {{ page_obj.title|upper }}<br>
+        <a href="{% url 'blog-article-detail-view' page_obj.slug %}">{{ page_obj.title|upper }}</a><br>
         <p>
             {{ page_obj.content }}
         </p>
