@@ -1,4 +1,5 @@
 from django.views.generic import ListView
+from django.views.generic.detail import DetailView
 
 from project.apps.blog.models import Article
 
@@ -16,3 +17,7 @@ class ArticleListView(ListView):
         context['page'] = page
 
         return context
+
+
+class ArticleDetailView(DetailView):
+    model = Article
