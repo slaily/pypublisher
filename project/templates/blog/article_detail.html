@@ -1,0 +1,9 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    {{ object.title|upper }}
+    <p>
+        {{ object.content }}
+    </p>
+    <span style="color:orange">{{ object.created_at }}</span>
+{% endblock content %}
