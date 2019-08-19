@@ -1,32 +1,19 @@
 from django.views.generic.base import TemplateView
 from django.http import HttpResponseNotFound
-from django.template import (
-    Context,
-    Engine,
-    TemplateDoesNotExist,
-    loader
-)
 
-
-ERROR_404_TEMPLATE_NAME = 'base/404.html'
+from project.apps.base import helpers
 
 
 def page_not_found(request, exception):
     """
     404 handler.
 
-    Template: `base/404.html`
+    :return:
+        Returns a :class:`HttpResponseNotFound` with 404 status code
     """
-    try:
-        template = loader.get_template(ERROR_404_TEMPLATE_NAME)
-        body = template.render(request=request)
-    except TemplateDoesNotExist:
-        template = Engine().from_string(
-            '<h1>Not Found</h1>'
-            '<p>The requested URL was not found on this server.</p>'
-        )
-        body = template.render(Context({}))
-    return HttpResponseNotFound(body)
+    content = helpers.load_page_not_found_template(request)
+
+    return HttpResponseNotFound(content)
 
 
 class IndexView(TemplateView):
