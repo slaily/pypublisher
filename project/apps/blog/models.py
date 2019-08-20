@@ -25,6 +25,7 @@ class Article(Base):
 
     title = models.CharField(max_length=70, unique=True)
     slug = models.SlugField(max_length=70, unique=True)
+    image_url = models.URLField(max_length=2000, default=None)
     content = models.TextField(max_length=23256)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     status = models.IntegerField(choices=STATUSES, default=0)
