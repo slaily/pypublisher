@@ -10,3 +10,5 @@ urlpatterns = [
     path('', include('project.apps.base.urls')),
     path('blog/', include('project.apps.blog.urls')),
 ]
+
+handler404 = 'project.apps.base.views.page_not_found'
