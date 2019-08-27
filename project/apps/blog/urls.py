@@ -13,5 +13,10 @@ urlpatterns = [
         'articles/<slug:slug>',
         views.ArticleDetailView.as_view(),
         name='blog-article-detail-view'
-    )
+    ),
+    path(
+        'contact',
+        views.ContactView.as_view(),
+        name='blog-contact-view'
+    ),
 ]
