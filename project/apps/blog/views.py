@@ -1,7 +1,9 @@
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
+from django.views.generic.edit import FormView
 
 from project.apps.blog.models import Article
+from project.apps.blog.forms import ContactForm
 
 
 class ArticleListView(ListView):
@@ -21,3 +23,15 @@ class ArticleListView(ListView):
 
 class ArticleDetailView(DetailView):
     model = Article
+
+
+class ContactView(FormView):
+    template_name = 'blog/contact.html'
+    form_class = ContactForm
+    success_url = '/'
+
+    def form_valid(self, form):
+        # This method is called when valid form data has been POSTed.
+        form.send_email()
+
+        return super().form_valid(form)
