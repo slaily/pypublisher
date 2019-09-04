@@ -15,7 +15,6 @@ class ContactFormTest(TestCase):
             }
         )
         form.is_valid()
-        form.send_email()
 
         # Test that one message has been sent.
         self.assertEqual(len(mail.outbox), 1)
