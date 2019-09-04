@@ -43,6 +43,10 @@ STATIC_DIR = os.path.join(PROJECT_DIR, 'static')
 # File contains credentials and other settings related to the database
 MYSQL_CONF_PATH = os.path.join(MAIN_DIR, 'mysql.cnf')
 
+# Path to the dotenv file
+# File contains sensitive application settings
+DOTENV_FILE_PATH = os.path.join(MAIN_DIR, '.env')
+
 
 # ===========================
 # HOSTING
