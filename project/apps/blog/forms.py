@@ -3,9 +3,33 @@ from django.core.mail import send_mail
 
 
 class ContactForm(forms.Form):
-    from_email = forms.EmailField(max_length=254)
-    subject = forms.CharField(max_length=128)
-    message = forms.CharField(max_length=2512, widget=forms.Textarea)
+    from_email = forms.EmailField(
+        label='',
+        max_length=254,
+        widget=forms.EmailInput(
+            attrs={
+                'placeholder': 'Email *'
+            }
+        )
+    )
+    subject = forms.CharField(
+        label='',
+        max_length=128,
+        widget=forms.TextInput(
+            attrs={
+                'placeholder': 'Subject *'
+            }
+        )
+    )
+    message = forms.CharField(
+        label='',
+        max_length=2512,
+        widget=forms.Textarea(
+            attrs={
+                'placeholder': 'Message *'
+            }
+        )
+    )
 
     def send_email(self):
         subject = self.cleaned_data['subject']
