@@ -7,8 +7,8 @@ from project.apps.blog.forms import ContactForm
 
 
 class ArticleListView(ListView):
-    queryset = Article.objects.order_by('-created_at')
-    paginate_by = 1
+    queryset = Article.objects.filter(status=1).order_by('-created_at')
+    paginate_by = 3
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
