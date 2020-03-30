@@ -1,5 +1,8 @@
 from django import forms
 from django.core.mail import send_mail
+from django.conf import settings
+
+from project.apps.blog.constants import EMAIL_TEMPLATE_STR
 
 
 class ContactForm(forms.Form):
@@ -35,12 +38,16 @@ class ContactForm(forms.Form):
         subject = self.cleaned_data['subject']
         message = self.cleaned_data['message']
         from_email = self.cleaned_data['from_email']
-
+        formatted_message = EMAIL_TEMPLATE_STR.format(
+            email=from_email,
+            subject=subject,
+            message=message
+        )
         send_mail(
             subject,
-            message,
-            from_email,
-            ['to@test.com'],
+            formatted_message,
+            'to@test.com',
+            [settings.DEFAULT_FROM_EMAIL],
             fail_silently=False,
         )
 
