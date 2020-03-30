@@ -8,6 +8,11 @@ import os
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'b_3scg0(#a0+edh2*$58908g1o4*g58udc#iy5jczpyvf$7kpm'
 
+
+# ===========================
+# DEBUGGING
+# ===========================
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -56,7 +61,8 @@ ALLOWED_HOSTS = []
 
 
 # ===========================
-# PASSWORD VALIDATION
+# AUTH
+# https://docs.djangoproject.com/en/2.2/ref/settings/#auth
 # ===========================
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -103,7 +109,7 @@ USE_TZ = True
 
 
 # ===========================
-# APPLICATION DEFINITION
+# APPLICATIONS
 # ===========================
 
 PREREQUISITES_APPS = [
@@ -113,6 +119,8 @@ PREREQUISITES_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sitemaps',
+    'ckeditor',
 ]
 
 PROJECT_APPS = [
@@ -121,6 +129,10 @@ PROJECT_APPS = [
 ]
 
 INSTALLED_APPS = PREREQUISITES_APPS + PROJECT_APPS
+
+# ===========================
+# HTTP
+# ===========================
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -132,7 +144,19 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+WSGI_APPLICATION = 'project.wsgi.application'
+
+
+# ===========================
+# URLs
+# ===========================
+
 ROOT_URLCONF = 'project.urls'
+
+
+# ===========================
+# TEMPLATES
+# ===========================
 
 TEMPLATES = [
     {
@@ -150,8 +174,6 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'project.wsgi.application'
-
 
 # ===========================
 # DATABASE
@@ -165,5 +187,105 @@ DATABASES = {
             # Read MySQL credentials from file
             'read_default_file': MYSQL_CONF_PATH,
         },
+    }
+}
+
+
+# ===========================
+# Django CKEditor
+# https://django-ckeditor.readthedocs.io/en/latest/
+# ===========================
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'height': 500,
+        'toolbar_Custom': [
+            [
+                'Styles',
+                'Format',
+                'Bold',
+                'Italic',
+                'Underline',
+                'Strike',
+                'Undo',
+                'Redo',
+                'Link',
+                'Unlink',
+                'Image',
+                'Table',
+                'HorizontalRule',
+                'TextColor',
+                'BGColor',
+                'Smiley',
+                'SpecialChar',
+                'Source',
+            ]
+        ]
+    },
+    'special': {
+        'toolbar': 'Special',
+        'toolbar_Special': [
+            {
+                'name': 'Edit',
+                'items': [
+                    'Find',
+                    'Replace',
+                    '-',
+                    'SelectAll'
+                ]
+            },
+            '/',
+            {
+                'name': 'Insert',
+                'items': [
+                    'Image',
+                    'Link'
+                ]
+            },
+            '/',
+            {
+                'name': 'Text Format',
+                'items': [
+                    'Bold',
+                    'Italic',
+                    'Underline',
+                    'Strike',
+                    '-',
+                    'RemoveFormat',
+                    'CodeSnippet'
+                ]
+            },
+            '/',
+            {
+                'name': 'Styles',
+                'items': [
+                    'Styles',
+                    'Format',
+                    'Font',
+                    'FontSize',
+                    'TextColor',
+                    'BGColor',
+                    'NumberedList',
+                    'BulletedList',
+                    '-', 'Outdent',
+                    'Indent',
+                    '-',
+                    'Blockquote',
+                    '-',
+                    'JustifyLeft',
+                    'JustifyCenter',
+                    'JustifyRight',
+                    'JustifyBlock',
+                    '-'
+                ]
+            },
+            '/',
+            {
+                'name': 'Others',
+                'items': ['Preview']
+            },
+        ],
+        'extraPlugins': 'codesnippet'
     }
 }
