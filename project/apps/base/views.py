@@ -1,4 +1,4 @@
-from django.views.generic.base import TemplateView
+from django.views.generic.base import RedirectView
 from django.http import HttpResponseNotFound
 
 from project.apps.base import helpers
@@ -16,5 +16,5 @@ def page_not_found(request, exception):
     return HttpResponseNotFound(content)
 
 
-class IndexView(TemplateView):
-    template_name = 'base/index.html'
+class IndexView(RedirectView):
+    pattern_name = 'blog-article-list-view'
