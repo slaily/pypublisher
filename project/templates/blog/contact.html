@@ -1,8 +1,23 @@
 {% extends 'base/base.html' %}
 
+{% block title %}
+    Contact | TamePython
+{% endblock title %}
+
 {% block content %}
-    <form method="post">{% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Send message">
+<section id="wrapper">
+  <div class="email-container">
+    <form role="form" method="post" action="">
+    {% csrf_token %}
+      <p>
+          <h1>
+            <center>Contact</center>
+          </h1>
+      </p>
+      {{ form }}
+    <input type="submit" value="Send">
     </form>
+  </div>
+</section>
+<hr>
 {% endblock content %}

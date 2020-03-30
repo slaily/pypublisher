@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+ body {
+     margin: 0;
+     padding: 0;
+     font-family: 'Open Sans', sans-serif;
+}
+ .error__wrapper {
+     --orbit1-size: 105vw;
+     --orbit2-size: 85vw;
+     --orbit3-size: 60vw;
+     --orbit4-size: 40vw;
+     --planet1-size: 1.4rem;
+     --planet2-size: 1.2rem;
+     --planet3-size: .8rem;
+     --tomato: 239,93,95;
+}
+ .error__wrapper {
+     position: fixed;
+     top: 0;
+     left: 0;
+     z-index: 5;
+     width: 100%;
+     height: 100vh;
+     overflow: hidden;
+}
+ .error__content {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     text-align: center;
+     z-index: 10;
+}
+ .error__title {
+     font-size: 7rem;
+     color: #5B6974;
+}
+ .error__subtitle {
+     font-size: 1.2rem;
+     color: #829094;
+}
+ .error__link-back {
+     position: relative;
+     display: inline-block;
+     margin-top: 35px;
+     padding: 5px 20px;
+     background-color: rgb(var(--tomato));
+     font-size: 1.2rem;
+     color: #fff;
+     text-decoration: none;
+     transition: all .35s;
+}
+ .error__link-back::before, .error__link-back::after {
+     content: '';
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     transition: all .35s;
+     z-index: 5;
+}
+ .error__link-back::before {
+    border-top: 1px solid rgb(var(--tomato));
+}
+ .error__link-back::after {
+    border-left: 1px solid rgb(var(--tomato));
+}
+ .error__link-back:hover {
+     box-shadow: 5px 5px rgba(var(--tomato),.6);
+}
+ .error__link-back:hover::before {
+     transform: translate(0, -4px);
+}
+ .error__link-back:hover::after {
+     transform: translate( -4px, 0);
+}
+/* bg animation */
+ .orbits {
+     box-sizing: border-box;
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     border-radius: 50%;
+     border: 1px solid #CAE0E6;
+}
+ .orbit_1 {
+     width: var(--orbit1-size);
+     height: var(--orbit1-size);
+     z-index: 3;
+     margin-top: calc((var(--orbit1-size) / 2) * -1);
+     margin-left: calc((var(--orbit1-size) / 2) * -1);
+     animation: rotateOrbit 28s linear infinite;
+}
+ .orbit_2{
+     width: var(--orbit2-size);
+     height: var(--orbit2-size);
+     z-index: 4;
+     margin-top: calc((var(--orbit2-size) / 2) * -1);
+     margin-left: calc((var(--orbit2-size) / 2) * -1);
+     animation: rotateOrbit 22s linear infinite reverse;
+}
+ .orbit_3 {
+     width: var(--orbit3-size);
+     height: var(--orbit3-size);
+     z-index: 5;
+     margin-top: calc((var(--orbit3-size) / 2) * -1);
+     margin-left: calc((var(--orbit3-size) / 2) * -1);
+     animation: rotateOrbit 18s linear infinite;
+}
+ .orbit_4 {
+     width: var(--orbit4-size);
+     height: var(--orbit4-size);
+     z-index: 6;
+     margin-top: calc((var(--orbit4-size) / 2) * -1);
+     margin-left: calc((var(--orbit4-size) / 2) * -1);
+     animation: rotateOrbit 17s linear infinite reverse;
+}
+ .planets {
+     position: absolute;
+     border-radius: 50%;
+}
+ .planet_1 {
+     background-color: rgb(var(--tomato));
+     width: var(--planet1-size);
+     height: var(--planet1-size);
+}
+ .planet_2 {
+     background-color: #5887FF;
+     width: var(--planet2-size);
+     height: var(--planet2-size);
+}
+ .planet_3 {
+     background-color: #677986;
+     width: var(--planet3-size);
+     height: var(--planet3-size);
+}
+ .orbit_1 .planet_1 {
+     top: calc(var(--orbit1-size) / 2);
+     left: calc((var(--planet1-size) / 2) * -1);
+}
+ .orbit_1 .planet_2 {
+     top: calc(var(--orbit1-size) / 2);
+     right: calc((var(--planet2-size) / 2) * -1);
+}
+ .orbit_1 .planet_3 {
+     top: calc((var(--planet3-size) / 2) * -1);
+     left: calc(var(--orbit1-size) / 2);
+}
+ .orbit_2 .planet_1 {
+     right: calc((var(--planet1-size) / 2) * -1);
+     bottom: calc(var(--orbit2-size) / 2);
+}
+ .orbit_2 .planet_2 {
+     top: calc(var(--orbit2-size) / 2);
+     left: calc((var(--planet2-size) / 2) * -1);
+}
+ .orbit_2 .planet_3 {
+     left: calc(var(--orbit2-size) / 2);
+     bottom: calc((var(--planet3-size) / 2) * -1);
+}
+ .orbit_3 .planet_1 {
+     left: calc((var(--planet1-size) / 2) * -1);
+     bottom: calc(var(--orbit3-size) / 2);
+}
+ .orbit_3 .planet_2 {
+     top: calc(var(--orbit3-size) / 2);
+     right: calc((var(--planet2-size) / 2) * -1);
+}
+ .orbit_3 .planet_3 {
+     left: calc(var(--orbit3-size) / 2);
+     bottom: calc((var(--planet3-size) / 2) * -1);
+}
+ .orbit_4 .planet_1 {
+     left: calc((var(--planet1-size) / 2) * -1);
+     top: calc(var(--orbit4-size) / 2);
+}
+ .orbit_4 .planet_2 {
+     bottom: calc(var(--orbit4-size) / 2);
+     right: calc((var(--planet2-size) / 2) * -1);
+}
+ @keyframes rotateOrbit {
+     from {
+         transform: rotate(0deg);
+    }
+     to {
+         transform: rotate(360deg);
+    }
+}

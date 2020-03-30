@@ -1,28 +1,26 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>{% block title %}{% endblock title%}</title>
-    <!-- Bootstrap core CSS -->
-    <!-- Fonts -->
-    <!-- Custom styles for the template -->
+<head>
+    <title>{% block title %}Base HTML Template{% endblock %}</title>
+    {% include 'base/_head.html' %}
     {% block head %}{% endblock head %}
-  </head>
-  <body>
+</head>
+
+<body>
     <!-- Navigation -->
     {% include 'base/_navbar.html' %}
     <!-- Page Header -->
     {% block header %}{% endblock header%}
-    {% block content %}{% endblock content %}
-    <hr>
-    <!-- Footer -->
-    {% include 'base/_footer.html' %}
-    <!-- Bootstrap core JavaScript -->
-    <!-- Custom scripts for the template -->
+    <!-- Page Content -->
+    <section id="wrapper">
+        {% block content %}{% endblock content %}
+        <!-- Page Footer -->
+        {% include 'base/_footer.html' %}
+    </section>
+    <!-- Scripts for the template -->
+    {% include 'base/_script.html' %}
     {% block scripts %}{% endblock scripts %}
-  </body>
+</body>
+
 </html>

@@ -1,9 +1,22 @@
 {% extends 'base/base.html' %}
 
+{% block title %}
+    {{ object.title }} | TamePython
+{% endblock title %}
+
 {% block content %}
-    {{ object.title|upper }}
-    <p>
-        {{ object.content }}
-    </p>
-    <span style="color:orange">{{ object.created_at }}</span>
+<section id="wrapper">
+  <article class="post">
+    <header>
+      <h1>{{ object.title }}</h1>
+      <br>
+      <h2 class="headline">{{ object.created_at|date:"M j, Y" }}</h2>
+      <br>
+    </header>
+    <section id="post-body">
+        {{ object.content|safe}}
+    </section>
+  </article>
+</section>
+<hr>
 {% endblock content %}
