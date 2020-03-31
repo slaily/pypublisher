@@ -1,1 +1,1 @@
-ERROR_404_TEMPLATE_NAME = 'base/404.html'
+ERROR_404_TEMPLATE_PATH = 'base/404.html'

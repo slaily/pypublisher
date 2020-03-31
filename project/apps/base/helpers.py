@@ -19,7 +19,7 @@ def load_page_not_found_template(request):
         used for “safe” HTML output purposes.
     """
     try:
-        template = loader.get_template(constants.ERROR_404_TEMPLATE_NAME)
+        template = loader.get_template(constants.ERROR_404_TEMPLATE_PATH)
         content = template.render(request=request)
     except TemplateDoesNotExist:
         template = Engine().from_string(
