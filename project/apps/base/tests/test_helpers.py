@@ -5,16 +5,11 @@ from project.apps.base import helpers
 
 
 class LoadPageNotFoundTemplateTest(TestCase):
-    def test_load_page_not_found_template(self):
-        content = helpers.load_page_not_found_template({})
-
-        self.assertEqual(content, '<h1>404 - Not Found</h1>\n')
-
     @patch(
-        'project.apps.base.helpers.constants.ERROR_404_TEMPLATE_NAME',
-        'base/wrong_404'
+        'project.apps.base.helpers.constants.ERROR_404_TEMPLATE_PATH',
+        'base/wront_404.html'
     )
     def test_load_page_not_found_template_with_not_existing_template(self):
         content = helpers.load_page_not_found_template({})
 
-        self.assertNotEqual(content, '<h1>404 - Not Found</h1>\n')
+        self.assertNotEqual(content, '<h1>404</h1>\n')
