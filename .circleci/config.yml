@@ -8,6 +8,8 @@ jobs:
       SECRET_KEY: 2i3gn2oq3ig3g2oigmw3
     steps:
       - checkout
+      - run: sudo chown -R circleci:circleci /usr/local/bin
+      - run: sudo chown -R circleci:circleci /usr/local/lib/python3.7/site-packages
       - restore_cache:
           key: deps1-{{ .Branch }}-{{ checksum "Pipfile.lock" }}
       - run:
