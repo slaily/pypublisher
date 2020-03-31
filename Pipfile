@@ -6,11 +6,14 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-django = "==2.0.12"
+django = "==2.0"
 coverage = "*"
 mysqlclient = "*"
 flake8 = "*"
 python-dotenv = "*"
+gunicorn = "*"
+docker-compose = "*"
+django-ckeditor = "*"
 
 [requires]
 python_version = "3.7"
