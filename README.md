@@ -2,6 +2,8 @@
 
 *Modern Blog application written in Python*
 
+[![CircleCI](https://circleci.com/gh/slaily/pypublisher/tree/master.svg?style=svg)](https://circleci.com/gh/slaily/pypublisher/tree/master)
+
 > **NOTE**:
 >
 >> <em>Before proceeding to the sections below, instead of manually installing prerequisites software for the project, you have the convenience running project through a [**Docker**](./docs/setup/docker.md). You have a packaged application with all of its dependencies into containers, no matter from the environment in which they run. It is up to you.</em>
