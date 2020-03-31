@@ -18,3 +18,6 @@ class LoadPageNotFoundTemplateTest(TestCase):
         content = helpers.load_page_not_found_template({})
 
         self.assertNotEqual(content, '<h1>404 - Not Found</h1>\n')
+
+    def test_new_pass(self):
+        pass
