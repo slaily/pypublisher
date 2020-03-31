@@ -22,5 +22,5 @@ class LoadPageNotFoundTemplateTest(TestCase):
     def test_new_pass(self):
         pass
 
-     def test_another_pass(self):
+    def test_another_pass(self):
         pass
