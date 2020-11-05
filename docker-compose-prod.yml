@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    container_name: pypublisher_web
+    restart: always
+    volumes:
+      - .:/src
+    command: bash -c "gunicorn -c config/gunicorn/production.py project.wsgi"
+  nginx:
+    image: nginx:latest
+    container_name: pypublisher_nginx
+    restart: always
+    volumes:
+      - /var/www/pypublisher:/var/www/pypublisher
+      - ./config/nginx/conf.d/:/etc/nginx/conf.d/:ro
+      - ./config/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "80:80"
+    depends_on:
+      - web
